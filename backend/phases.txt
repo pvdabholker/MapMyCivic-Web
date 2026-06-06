@@ -1,0 +1,322 @@
+
+# 🚀 MASTER ROADMAP
+
+# 🧩 PHASE 0 — ARCHITECTURE FREEZE (YOU ARE HERE)
+
+### 🎯 Goal:
+
+Lock all decisions before coding
+
+### ✅ Final Decisions:
+
+* 2 auth systems:
+
+  * Users (public)
+  * Authorities (admin + parent)
+* Same DB (`mapmycivic`)
+* Same Cloudinary
+* CCTV → stores **1 best frame only**
+* Backend controls access (not frontend)
+
+---
+
+# ⚙️ PHASE 1 — BACKEND FOUNDATION
+
+### 🎯 Goal:
+
+Make backend runnable + structured
+
+### What you do:
+
+* Create project structure
+* Setup FastAPI
+* Setup PostgreSQL connection
+* Setup `.env`
+* Setup base models loader
+
+### ✅ Output:
+
+* Server runs (`/` works)
+* DB connects successfully
+
+### 🧪 Test:
+
+* `GET /` → success
+
+---
+
+# 🔐 PHASE 2 — AUTH SYSTEM (SEPARATED)
+
+### 🎯 Goal:
+
+Implement 2 login systems cleanly
+
+### Modules:
+
+1. User auth (already concept exists)
+2. Authority auth (NEW)
+
+### Authority rules:
+
+* No signup
+* Only login
+* Stored in separate table
+
+### ✅ Output:
+
+* `/auth/login` → user
+* `/authority/login` → admin/parent
+
+### 🧪 Test (Insomnia):
+
+* login works
+* token returned
+
+---
+
+# 🧠 PHASE 3 — ROLE + ACCESS CONTROL
+
+### 🎯 Goal:
+
+Control who sees what (CORE LOGIC)
+
+### Roles:
+
+* user → own reports
+* parent → department reports
+* admin → all reports
+
+### ✅ Output:
+
+* Same API behaves differently based on role
+
+### 🧪 Test:
+
+* login as user → limited data
+* login as parent → filtered data
+* login as admin → full data
+
+---
+
+# 📦 PHASE 4 — REPORT SYSTEM (CORE ENGINE)
+
+### 🎯 Goal:
+
+Make reports fully functional
+
+### Includes:
+
+* Create report (image/video)
+* AI validation
+* Duplicate detection
+* Department mapping
+* Status update
+
+### Add:
+
+* `department`
+* `source` (user / cctv)
+
+### ✅ Output:
+
+* Reports stored properly
+* Correct department assigned
+
+### 🧪 Test:
+
+* Upload image → stored
+* Invalid → rejected
+* Duplicate → blocked
+
+---
+
+# 🧑‍💼 PHASE 5 — ADMIN PANEL BACKEND
+
+### 🎯 Goal:
+
+Power your admin UI
+
+### Features:
+
+* Get all reports
+* Update status
+* Delete reports
+* View analytics (counts)
+
+### Add:
+
+* Stats API:
+
+  * total
+  * resolved
+  * critical
+  * in progress
+
+### ✅ Output:
+
+* Admin dashboard fully powered
+
+---
+
+# 🏢 PHASE 6 — PARENT (AUTHORITY FILTERED VIEW)
+
+### 🎯 Goal:
+
+Department-based access
+
+### Rules:
+
+* Only see their department issues
+* Cannot see other departments
+* Limited control (optional)
+
+### ✅ Output:
+
+* Same APIs → filtered results
+
+---
+
+# 📢 PHASE 7 — NOTICE SYSTEM
+
+### 🎯 Goal:
+
+Admin creates notices
+
+### Features:
+
+* Create notice
+* View notices
+* Filter by department
+
+### Access:
+
+* admin → all
+* parent → department only
+* user → public notices
+
+---
+
+# 🤖 PHASE 8 — CCTV PIPELINE
+
+### 🎯 Goal:
+
+Automate issue detection
+
+### Flow:
+
+1. Video input
+2. Frame extraction
+3. YOLO detection
+4. Pick BEST frame
+5. Create report
+
+### Important:
+
+* Only **1 frame stored**
+* `source = cctv`
+
+---
+
+# 🧪 PHASE 9 — CCTV TESTING (WITHOUT REAL CCTV)
+
+### 🎯 Goal:
+
+Simulate real system
+
+### Method:
+
+* Script sends video every X seconds
+* Acts like CCTV
+
+### ✅ Output:
+
+* Automatic reports generated
+
+---
+
+# 📊 PHASE 10 — ANALYTICS + OPTIMIZATION
+
+### 🎯 Goal:
+
+Make it smart
+
+### Add:
+
+* Issue counts by category
+* Department performance
+* Heatmaps (later)
+
+---
+
+# 🚀 PHASE 11 — DEPLOYMENT
+
+### 🎯 Goal:
+
+Make it usable
+
+### Deploy:
+
+* Backend (Render / Railway / VPS)
+* DB (already PostgreSQL)
+* Frontend (Vercel)
+
+---
+
+# 🧠 HOW EVERYTHING CONNECTS
+
+```
+User → Upload → API → DB
+CCTV → Script → API → DB
+
+DB → Role Filter → Response
+
+Admin → Full Control
+Parent → Dept Only
+User → Own + Public
+```
+
+---
+
+# ⚠️ CRITICAL RULES (DON’T BREAK THESE)
+
+### 1. Never mix auth systems
+
+* User ≠ Authority
+
+### 2. Backend decides access
+
+* NOT frontend
+
+### 3. Always store department in report
+
+* No runtime guessing
+
+### 4. CCTV = automated user
+
+* Same pipeline
+
+---
+
+# 🧭 WHAT WE DO NEXT
+
+Now we start **Phase 1 (Foundation)**
+
+👉 Next step will be:
+
+* exact backend initialization
+* minimal working server
+* DB connection verification
+
+---
+
+If you’re ready, say:
+
+> **start phase 1**
+
+Then I’ll guide you step-by-step with:
+
+* exact commands
+* what to check
+* how to test in Insomnia
+
+No confusion, no skipping.

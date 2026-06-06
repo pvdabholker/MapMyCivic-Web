@@ -1,0 +1,66 @@
+# =========================
+# FRONTEND
+# =========================
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+
+# =========================
+# BACKEND
+# =========================
+backend/venv/
+backend/env/
+backend/temp/
+
+# =========================
+# PYTHON CACHE
+# =========================
+__pycache__/
+*.pyc
+
+# =========================
+# ENVIRONMENT VARIABLES
+# =========================
+.env
+backend/.env
+frontend/.env
+
+# =========================
+# TEMP FILES
+# =========================
+*.tmp
+
+# =========================
+# OUTPUT FILES
+# =========================
+output_detection.jpg
+output_video.mp4
+
+# =========================
+# MODEL FILES
+# =========================
+*.pt
+*.pth
+*.safetensors
+
+# =========================
+# OS FILES
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE FILES
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# LOG FILES
+# =========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
