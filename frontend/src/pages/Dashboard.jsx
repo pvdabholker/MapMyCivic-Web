@@ -34,7 +34,7 @@ function Dashboard() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
 
-  const categories = ["All"];
+  const categories = ["All", "Potholes", "Streetlight", "Garbage", "Water Logging", "Other"];
 
   // ================= FETCH =================
   useEffect(() => {
@@ -104,6 +104,7 @@ function Dashboard() {
 
     const matchCategory =
       filter === "All" || issue.issue_type === filter;
+
 
     const matchSearch =
       issue.issue_type?.toLowerCase().includes(search.toLowerCase()) ||

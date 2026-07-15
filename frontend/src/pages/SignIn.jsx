@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../images/logo.png";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -75,7 +76,7 @@ function SignIn() {
             <div className="w-24 h-24 rounded-3xl bg-white shadow-xl border border-emerald-100 flex items-center justify-center overflow-hidden">
 
               <img
-                src="/logo.png"
+                src={logo}
                 alt="Logo"
                 className="w-16 h-16 object-contain"
               />

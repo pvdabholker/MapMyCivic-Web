@@ -205,5 +205,4 @@ function MapView() {
     </div>
   );
 }
-
 export default MapView;
